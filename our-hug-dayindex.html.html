@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hug Day for You</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #ffe6f1;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #ff66b2;
+      font-size: 3em;
+      font-family: 'Dancing Script', cursive;
+    }
+    p {
+      font-size: 1.2em;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    .message {
+      font-size: 1.5em;
+      color: #ff3399;
+      font-weight: bold;
+    }
+    .hug-button {
+      background-color: #ff66b2;
+      color: white;
+      font-size: 1.2em;
+      padding: 15px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+    .hug-button:hover {
+      background-color: #ff3385;
+    }
+    .hug-animation {
+      display: none;
+      font-size: 2em;
+      margin-top: 20px;
+      color: #ff3399;
+    }
+    .countdown {
+      font-size: 2em;
+      margin: 30px 0;
+      color: #ff66b2;
+    }
+    .photo-gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .photo-gallery img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .floating-hearts {
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+    #quoteSection {
+      font-size: 1.2em;
+      color: #ff3399;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Happy Hug Day, My Love!</h1>
+
+<p>Every hug you give me fills my heart with warmth and joy. Today we couldn't meet, but I'm sending you sweet, warm hugs—soft and tightly, only for you, Alka. I can’t wait to hug you more. Here’s a little virtual hug for you today!</p>
+
+<div id="quoteSection" class="message"></div>
+
+<div class="countdown">
+  <p id="timer">Time left until Hug Day: <span id="countdown"></span></p>
+</div>
+
+<div class="playlist">
+  <h2>Our Playlist 🎶</h2>
+  <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4pAtJteyweQ" width="300" height="380" frameborder="0" allow="encrypted-media"></iframe>
+</div>
+
+<div class="floating-hearts">💖</div>
+
+<button class="hug-button" id="loveJarButton">Open a Love Jar!</button>
+
+<div id="hugAnimation" class="hug-animation">
+  <p>🤗 *Hug!* 🤗</p>
+</div>
+
+<!-- Photo Gallery -->
+<div class="photo-gallery">
+  <img src="images/hug-day-photo1.jpg" alt="Photo 1" id="specialPhoto" />
+  <img src="images/hug-day-photo2.jpg" alt="Photo 2" id="secondPhoto" />
+  <img src="images/hug-day-photo3.jpeg" alt="Photo 3" id="thirdPhoto" />
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("JavaScript Loaded!"); // Debugging line to check if script runs
+
+  // Get the elements
+  const specialPhoto = document.getElementById('specialPhoto');
+  const secondPhoto = document.getElementById('secondPhoto');
+  const thirdPhoto = document.getElementById('thirdPhoto');
+  const loveJarButton = document.getElementById('loveJarButton');
+
+  // Function to attach event listeners safely
+  function addClickListener(element, message) {
+    if (element) {
+      element.addEventListener('click', function() {
+        alert(message);
+      });
+    } else {
+      console.error("Element not found:", element);
+    }
+  }
+
+  // Add click events for images
+  addClickListener(specialPhoto, "You're my everything! ❤️");
+  addClickListener(secondPhoto, "Every moment with you is magical! ✨");
+  addClickListener(thirdPhoto, "You light up my world! 💡");
+
+  // Love Jar Messages
+  const loveNotes = [
+    "I love you more than words can say. 💖",
+    "Every day with you feels like a dream come true. 🌹",
+    "You are my forever. 😘",
+    "You make everything brighter, my love. 🌟",
+    "I can't wait to hug you in person soon! 🤗"
+  ];
+
+  // Love Jar Click Event
+  if (loveJarButton) {
+    loveJarButton.addEventListener('click', function() {
+      const randomIndex = Math.floor(Math.random() * loveNotes.length);
+      alert(loveNotes[randomIndex]); // Show a random love message
+    });
+  } else {
+    console.error("Love Jar button not found!");
+  }
+});
+</script>
+
+<script>
+// Quotes Array
+const quotes = [
+  "Every time I hug you, the world seems right. 💖",
+  "You're the best part of my life. 🥰",
+  "A hug from you feels like home. 🏡",
+  "I can't wait to be with you forever! 💞"
+];
+
+function showRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  document.getElementById('quoteSection').innerHTML = quotes[randomIndex];
+}
+
+window.onload = showRandomQuote; // Show a random quote when the page loads
+
+// Countdown Timer for Hug Day (with current time on Feb 12, 2025)
+function updateCountdown() {
+  // Get the current time on February 12, 2025
+  const currentTime = new Date();
+  const targetDate = new Date("February 12, 2025");
+  targetDate.setHours(currentTime.getHours());
+  targetDate.setMinutes(currentTime.getMinutes());
+  targetDate.setSeconds(currentTime.getSeconds());
+
+  const timeLeft = targetDate - currentTime;
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(updateCountdown, 1000);
+
+// Virtual Hug Button Animation
+document.getElementById('loveJarButton').addEventListener('click', function() {
+  const hugAnimation = document.getElementById('hugAnimation');
+  hugAnimation.style.display = 'block';
+  setTimeout(function() {
+    hugAnimation.style.display = 'none';
+  }, 3000); // Hide after 3 seconds
+});
+</script>
+
+</body>
+</html>
