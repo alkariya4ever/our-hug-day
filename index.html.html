@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hug Day for You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffe6f1;
+            color: #333;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #ff66b2;
+            font-size: 3em;
+            font-family: 'Dancing Script', cursive;
+        }
+        p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        .message {
+            font-size: 1.5em;
+            color: #ff3399;
+            font-weight: bold;
+        }
+        .hug-button {
+            background-color: #ff66b2;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .hug-button:hover {
+            background-color: #ff3385;
+        }
+        .hug-animation {
+            display: none;
+            font-size: 2em;
+            margin-top: 20px;
+            color: #ff3399;
+        }
+        .countdown {
+            font-size: 2em;
+            margin: 30px 0;
+            color: #ff66b2;
+        }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .photo-gallery img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .playlist {
+            margin-top: 30px;
+        }
+        .floating-hearts {
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+        #quoteSection {
+            font-size: 1.2em;
+            color: #ff3399;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Hug Day, My Love!</h1>
+
+    <p>Every hug you give me fills my heart with warmth and joy. today we couldn't met but I'msending you sweet warmth hugs soft and tightly only for you alka. I can’t wait to hug you more. Here’s a little virtual hug for you today!</p>
+
+    <!-- Interactive Love Quotes -->
+    <div id="quoteSection" class="message"></div>
+
+    <div class="countdown">
+        <p id="timer">Time left until Hug Day: <span id="countdown"></span></p>
+    </div>
+
+    <!-- Personalized Song Playlist Section -->
+    <div class="playlist">
+        <h2>Our Playlist 🎶</h2>
+        <iframe src="https://open.spotify.com/embed/playlist/https://open.spotify.com/playlist/37i9dQZF1DX4pAtJteyweQ?si=oTflA02AR5uUbUs5qYE3YQ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+
+    <!-- Floating Hearts Animation -->
+    <div class="floating-hearts">💖</div>
+
+    <!-- Love Jar -->
+    <button class="hug-button" id="loveJarButton">Open a Love Jar!</button>
+
+    <div id="hugAnimation" class="hug-animation">
+        <p>🤗 *Hug!* 🤗</p>
+    </div>
+
+    <!-- Photo Gallery -->
+<!-- Photo Gallery -->
+<div class="photo-gallery">
+    <!-- First Photo with click event to show a message -->
+    <img src="C:\Users\biggu\OneDrive\Pictures\Camera Roll\477694532_613340301452778_1769881168960196576_n.jpg"  alt="Photo 1" id="specialPhoto" />
+    
+    <!-- Second Photo with click event to show a different message -->
+    <img src="C:\Users\biggu\OneDrive\Pictures\freenbecky\475863506_615630147855948_7601451667620445414_n.jpg" alt="Photo 2" id="secondPhoto" />
+    
+    <!-- Third Photo with click event to show a different message -->
+    <img src="C:\Users\biggu\OneDrive\Pictures\freenbecky\GZrhTpKWUAo3_4o.jpeg" alt="Photo 3" id="thirdPhoto" />
+</div>
+
+<script>
+    // Personalized Message Pop-up for the first photo
+    document.getElementById('specialPhoto').addEventListener('click', function() {
+        alert("You're my everything! ❤️");
+    });
+
+    // Personalized Message Pop-up for the second photo
+    document.getElementById('secondPhoto').addEventListener('click', function() {
+        alert("Every moment with you is magical! ✨");
+    });
+
+    // Personalized Message Pop-up for the third photo
+    document.getElementById('thirdPhoto').addEventListener('click', function() {
+        alert("You light up my world! 💡");
+    });
+    <script>
+        // Interactive Love Quotes
+        const quotes = [
+            "Every time I hug you, the world seems right. 💖",
+            "You're the best part of my life. 🥰",
+            "A hug from you feels like home. 🏡",
+            "I can't wait to be with you forever! 💞"
+        ];
+
+        function showRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quoteSection').innerHTML = quotes[randomIndex];
+        }
+
+        window.onload = showRandomQuote; // Show a random quote when the page loads
+
+        // Countdown Timer for Hug Day
+        function updateCountdown() {
+            const targetDate = new Date("February 14, 2025 00:00:00").getTime();
+            const currentDate = new Date().getTime();
+            const timeLeft = targetDate - currentDate;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
+
+        // Virtual Hug Button Animation
+        document.getElementById('hugButton').addEventListener('click', function() {
+            const hugAnimation = document.getElementById('hugAnimation');
+            hugAnimation.style.display = 'block';
+            setTimeout(function() {
+                hugAnimation.style.display = 'none';
+            }, 3000);  // Hide after 3 seconds
+        });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hug Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffe6f1;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #ff66b2;
+            font-size: 3em;
+            font-family: 'Dancing Script', cursive;
+        }
+        .hug-button {
+            background-color: #ff66b2;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .hug-button:hover {
+            background-color: #ff3385;
+        }
+        .hug-animation {
+            display: none;  /* Hide the GIF initially */
+            margin-top: 20px;
+        }
+        #hugGif {
+            width: 300px; /* Adjust size of the GIF */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Hug Day, My Love!</h1>
+
+    <!-- Virtual Hug Button -->
+    <button class="hug-button" id="hugButton">Give me a virtual hug!</button>
+
+    <!-- Hug GIF (Hidden initially) -->
+    <div id="hugAnimation" class="hug-animation">
+        <img id="hugGif" src="https://tenor.com/b2n87.gif" alt="Virtual Hug">
+    </div>
+
+    <script>
+        // When the hug button is clicked, show the hug GIF
+        document.getElementById('hugButton').addEventListener('click', function() {
+            const hugAnimation = document.getElementById('hugAnimation');
+            hugAnimation.style.display = 'block';  // Show the GIF
+        });
+    </script>
+
+</body>
+</html>
+
+        // Love Jar: Show a random love note
+        const loveNotes = [
+            "I love you more than words can say. 💖",
+            "Every day with you feels like a dream come true. 🌹",
+            "You are my forever. 😘",
+            "You make everything brighter, my love. 🌟"
+        ];
+
+        document.getElementById('loveJarButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * loveNotes.length);
+            alert(loveNotes[randomIndex]);
+        });
+
+        // Personalized Message Pop-up
+        document.getElementById('specialPhoto').addEventListener('click', function() {
+            alert("You're my everything! ❤️");
+        });
+    </script>
+
+</body>
+</html>
